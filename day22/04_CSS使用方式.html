@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用方式</title>
+
+<!--
+方式1：行内样式
+		标签中指定style属性：书写样式
+	style="css样式属性1:css样式属性值1;css样式属性2：值2;..."
+	弊端：
+		1)一次只能控制一个标签
+		2)样式代码和html混合使用，不利于后期管理
+		
+方式2:内部（内联）样式
+		需要在head标签体中指定style标签
+				格式
+						选择器{
+							css样式属性1:值1;
+							css属性属性2：值2;
+							....
+							
+						}
+		比第一种方式优越，但是也不利于管理
+	
+方式3:外部(外联)样式(前端开发推荐方式)
+  	 1)创建外部的CSS文件
+  	 2)引入外部CSS文件
+  	  在head中指定link标签  
+  	  			href属性：链接css文件
+  	  			rel属性：固定格式stylesheet（关联层叠样式表）
+-->
+<!--内部方式-->
+<!--<style>
+	a{
+		font-size: 30px;
+		color: #0F0;
+		/*去掉下划线*/
+		text-decoration: none;
+		/*鼠标经过元素之后，显示小手状态*/
+		cursor: pointer;
+	}
+</style>-->
+<link href="css/01.css" rel="stylesheet"/>
+	</head>
+<body>
+<!--<a href="#" style="font-size: 20px;color: #F00;text-decoration: none;">超链接1</a><br />-->
+<a href="#">超链接1</a><br />
+<a href="#">超链接2</a><br />
+<a href="#">超链接3</a>
+</body>
+</html>

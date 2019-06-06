@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪类选择器的使用</title>
+		<style>
+			/*tbody tr:hover{
+				背景色
+				background-color: blue;
+			}*/
+			td:hover{
+				/*鼠标经过标签之后变成小手状*/
+				cursor: pointer;
+				color: greenyellow;
+			}
+		</style>
+	</head>
+<!--
+	
+	需求:
+		指定一个表格(4行3列的,包含表头),鼠标经过每一行(除过表头)
+		背景变成蓝色(background-color)
+-->
+<body>
+<table border="1" cellspacing="0" align="center" width="200px" height="200px">
+	<thead>
+		<tr>
+			<th>编号</th>
+			<th>姓名</th>
+			<th>成绩</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>11</td>
+		<td>张三</td>
+		<td>89</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>李四</td>
+		<td>79</td>
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>王五</td>
+		<td>88</td>
+	</tr>
+	</tbody>
+</table>
+</body>
+</html>

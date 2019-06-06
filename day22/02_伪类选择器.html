@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪类选择器</title>
+<style>
+/*link*/
+a:link{
+	color: #F00;
+	font-size: 20px;
+	/*文本修饰: 去掉下划线*/
+	text-decoration: none;
+}
+/*visited*/
+a:visited{
+	color: gray;
+	font-size: 36px;
+	text-decoration: underline;
+}
+/*hover*/
+a:hover{
+	color: #00F;
+	font-size: 26px;
+	text-decoration: underline;
+}
+/*active*/
+a:active{
+	color: #0F0;
+	font-size: 30px;
+	text-decoration: none;
+}
+
+</style>
+	</head>
+<!--
+	伪类选择器(锚伪类),描述当前鼠标对标签的一种状态
+link:表示鼠标没有访问过的状态
+hover:鼠标经过状态  (开发中用的比较多)
+active:鼠标激活状态(点击了,但是没有松开的)
+visited:鼠标访问过的(点了,并且松开的状态)
+格式:
+	选择器:状态名称(不区分大小写)
+	
+想要出现循环的效果:
+示：在 CSS 定义中，a:hover 必须被置于 a:link 和 a:visited 之后，才是有效的。
+提示：在 CSS 定义中，a:active 必须被置于 a:hover 之后，才是有效的。
+
+
+-->
+<body>
+<a href="01_table首页布局.html">超链接</a>
+</body>
+</html>
