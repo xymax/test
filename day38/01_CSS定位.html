@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>定位属性</title>
+<!--
+	
+	三种方式
+A)绝对定位:absolute 
+		针对父元素进行移动
+B)相对定位:relative 
+	针对该元素原来的位置进行移动
+C)固定定位:fixed 
+应用场景:咨询类的网站随着滚动的滚动”立刻咨询”永远在页面中间位置
+-->
+<style>
+	#div1{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #000;
+		
+		/*设置背景*/
+		background-color: #F00;
+	}
+	
+	#div2{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #000;
+		background-color: #00F;
+	}
+	
+	#div3{
+		width: 200px;
+		height: 200px;
+		border: 1px solid #000;
+		background-color: #0F0;
+		
+		/*定位属性*/
+		 /*用途比较少,一般相对定位*/
+		/*position: absolute;*/
+		position: relative;
+		
+		top: 20px;
+		left: 20px;
+	}
+	
+	
+	#adv{
+		width:200px;
+		height: 200px;
+		border: 2px solid #000;
+		position: fixed;
+		top: 260px;
+		left: 470px;
+	}
+</style>
+	</head>
+<body>
+	<div id="div1">div1</div>
+	<div id="div2">div2</div>
+	<div id="div3">div3</div><br /><br /><br />
+	网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容
+	网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容网站内容
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="adv">
+	<button>立刻咨询立刻咨询立刻咨询</button>
+</div>
+	
+</body>
+</html>

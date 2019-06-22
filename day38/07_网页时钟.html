@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网页时钟</title>
+	</head>
+<script>
+	function task(){
+			//创建日期对象
+		var date = new Date() ;
+		//拼接日期字符串
+		var dateStr = date.getFullYear()+"-"+
+		(date.getMonth()+1)+"-"+date.getDate()+"&nbsp;&nbsp;&nbsp;"+
+		date.getHours()+":"+date.getMinutes()+":"+date.getSeconds() ;
+		//获取id="date_tip"的span标签对象
+		var dateTip = document.getElementById("date_tip") ;
+		//设置span标签对象innerHTML属性(带标签的文本) /innerText(针对普通文本)
+		dateTip.innerHTML = "<h2>"+dateStr+"</h2>"  ;
+	}
+	
+	
+
+/**
+ * 网页定时器
+ * 	window.setInterval("任务()",毫秒数) ;
+ *           每经过毫秒数重复执行任务()
+ *  window.setTimeout("任务()",毫秒数);
+ *           经过毫秒数只执行一次
+ */
+setInterval("task()",1000) ;
+</script>
+<body>
+	
+当前系统时间是：<span id="date_tip"></span>
+</body>
+</html>

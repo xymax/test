@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Js变量的定义以及数据类型</title>
+<!--引入js代码-->
+<script>
+	/**
+	 * 顺序结构语句
+	 * 选择结构语句
+	 * 	switch语句的结束条件
+	 * 		1)遇见break结束
+	 * 		2)程序默认执行末尾
+	 * 		switch(表达式){
+	 * 		case "值1":		js中case:后面可以跟常量还可以变量
+	 * 				语句1;
+	 * 				break ;
+	 * 		....
+	 * 		default:
+	 * 				语句n+1;
+	 * 				break ;
+	 * 
+	 * }
+	 * 
+	 * 
+	 * 		if(){
+	 * 	
+	 * }else{
+	 * 	
+	 * }
+	 * 循环结构语句
+	 * 	for() while do-while
+	 * 
+	 * 其他语句
+	 * 		for-in语句: 和java集合增强for类似
+	 * 		作用:遍历自定义对象(常用)/数组(建议普通for)
+	 */
+	
+	
+	//单行注释
+	/**
+	 * 多行注释
+	 * js中常用的两个函数
+	 */
+//document.write("hello,javascript");
+//消息对话框 (window对象下的一个方法)
+//window对象:是浏览器顶级对象,频繁调用,所以可以省略不写
+//window.alert("弹框") ;
+//alert("消息对话框") ;
+
+//javascript导入方式
+//1)外部方式 
+/**
+ * 在js文件书写js代码,使用script的src属性引入
+ * script标签必须是一个有开始有结束的标签
+ */
+//2)内部方式
+
+
+//变量定义:使用var定义 
+//1)在js中,可以同名的变量,后面定义的变量会覆盖前面定义的
+//2)在js中,使用var可以定义任意数据类型变量
+/**
+ * 3)基本数据类型的划分:
+ * 		无论是整数还是小数,都是number类型,内存中默认转换Number对象(内置)
+ * 		无论是字符串还是字符,都是string类型,默认转换String对象
+ * 		boolean类型,默认转换为Boolean对象
+ * 		object类型,默认转换Object对象(模板对象:代表所有内置对象的模板)
+ */
+
+//查看数据类型的函数typeof(变量名)
+//var a = 10 ;
+var a= 20 ; // var a = new Number(10) ;
+var b = "hello" ; //var b = new String("hello") ;
+var c = 3.1415926;
+var d = 'A' ;
+var e = true ;
+var f = new Object() ;
+
+
+document.write("a的值是:"+a+",a的数据类型是:"+typeof(a)+"<br />") ;
+document.write("b的值是:"+b+",b的数据类型是:"+typeof(b)+"<br />") ;
+document.write("c的值是:"+c+",c的数据类型是:"+typeof(c)+"<br />") ;
+document.write("d的值是:"+d+",d的数据类型是:"+typeof(d)+"<br />") ;
+document.write("e的值是:"+e+",e的数据类型是:"+typeof(e)+"<br />") ;
+document.write("f的值是:"+f+",d的数据类型是:"+typeof(f)+"<br />") ;
+
+
+</script>
+<!--<script src="js/01.js"></script>-->
+
+
+	</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<script>
+function getFouces(){
+	//通过id属性获取标签对象
+	var input = document.getElementById("username") ;
+
+	//设置标签对象 value属性
+	input.value ="" ;
+	
+	
+}
+
+function checkUserName(){
+	//定义一个用户名正则规则;用户名由5-14位组成在字母(不区分大小写)或者数字
+	var reg = /^[a-zA-Z0-9]{5,14}$/ ;
+	//获取当前用户的内容
+	var username = document.getElementById("username").value ;
+	//获取span标签对象
+	var span = document.getElementById("user_span") ;
+	if(reg.test(username)){
+		//成功
+		//设置span标签的innerHTML属性
+		span.innerHTML = "用户名可用".fontcolor("greenyellow") ;
+		return true ;
+	}else{
+		//失败
+		span.innerHTML = "用户名不可用".fontcolor("red") ;
+		return false ;
+	}
+}
+
+function checkAll(){
+	if(checkUserName()){
+		return true ;
+	}else{
+		return false ;
+	}
+}
+</script>
+	</head>
+<body>
+	<!--
+		onsubmit:表单提交是否成功
+			true:成功
+			false:提交失败
+	-->
+<form action="backend.html" method="post" onsubmit="return checkAll()">
+	<!--
+		placeholder:h5属性 
+	-->
+	用户名:<input type="text" onblur="checkUserName()" id="username" onfocus="getFouces()" value="请输入用户名" />
+	<!--innerHTML属性:就是设置一个标签的文本-->
+	<span id="user_span"></span><br />
+	<input type="submit" value="提交" />
+</form>
+</body>
+</html>

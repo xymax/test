@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js内置对象之Date</title>
+<script>
+	//Java中:Date :日期类 
+	//Date日期类: new Date() ;Date日期格式
+	/**
+	 * Date日期格式--->String:日期文本格式 2019-6-22
+	 * 借助于SimpleDateFormat("yyyy-MM-dd HH:mm:ss") ;
+	 * format(Date date) :格式化
+	 * 
+	 * String:日期文本格式 2019-6-22--->Date日期格式 
+	 * 解析	String str = "2019-6-22" ;
+	 * SimpleDateFormat("yyyy-MM-dd");
+	 * parse(String str) throws ParseException{} ;解析过程
+	 */
+	
+	
+	/**
+	 * js:Date的日期对象
+	 */
+	var date = new Date() ;
+	/*document.write(date); */
+//getYear(): 保存年份和1900年差距
+//document.write(date.getYear()+"年") ;
+//getFullYear():获取年
+document.write(date.getFullYear()+"年") ;
+//getMonth（）：年中的月份值
+document.write((date.getMonth()+1)+"月") ;
+//getDate():月份中 日期
+document.write(date.getDate()+"日&nbsp;&nbsp;&nbsp;") ;
+//时
+document.write(date.getHours()+":") ;
+//分
+document.write(date.getMinutes()+":") ;
+//秒
+document.write(date.getSeconds()) ;
+	
+</script>
+	</head>
+<body>
+	
+</body>
+</html>

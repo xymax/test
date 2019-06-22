@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>for-in语句</title>
+<!--
+	
+	for-in语句:可以遍历数组/遍历自定义对象的属性
+	自定义对象:
+		4种方式	
+				
+				推荐:json格式 (字面值量值)	GSON/FASTJON/JSONLib
+				{"key1":"value1"}	字符串类型
+				{"key":{
+					"key1":"value1","key2":"value2"
+				}}
+				
+				有参构造方式
+				无参构造方式
+				利用Object对象(代表所有的对象的模板)
+					var 对象名称 =new Object() ;
+					追加属性/追加方法
+-->
+<script>
+	//自定义对象      和函数定义一样
+	/**
+	 * 格式
+	 * 	function 对象(属性名称){
+	 * 		this.属性名称= 值1;
+	 * 		this.属性名称=值2;
+	 * 
+	 * }
+	 * 
+	 * 创建对象	var  对象名称 = new 对象(实际参数) ;
+	 */
+//定义人对象
+function Person(name,age){//this:代表person地址值引用
+	//追加属性
+	this.name = name ;
+	this.age = age ;
+}
+//创建对象
+var p = new Person("张三",20) ;
+
+/**
+ * for-in语句 :在遍历自定义对象使用多
+ * for(var 变量名 in 对象名称){
+ * 		输出(对象名称[变量名])
+ * }
+ */
+for(var i in p){
+	document.write(p[i]+"<br/>") ;
+}
+document.write("<hr />") ;
+//遍历数组
+var arr = [10,20,30,40] ; //var arr = new Array({[元素1...]}) ;
+//普通for
+for(var i = 0 ; i < arr.length ; i++){
+	document.write(arr[i]+"&nbsp;&nbsp;") ;
+}
+document.write("<hr />") ;
+//for-in
+for(var j in arr){
+	document.write(arr[j]+"&nbsp;&nbsp;") ;
+}
+
+</script>
+	</head>
+<body>
+</body>
+</html>
