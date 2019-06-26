@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义对象使用</title>
+<!--
+	引入js文件
+-->
+<script src="js/ArrayUtil.js"></script>
+<script>
+	//定义数组
+	var arr = [10,78,13,26,55] ;
+	//创建ArrayUtil对象
+var au = new ArrayUtil() ;
+var index = au.search(arr,13) ;
+document.write("当前元素的索引是:"+index+"<br />") ;
+var max = au.max(arr) ;
+document.write("最大值是:"+max+"<br />") ;
+</script>
+	</head>
+	
+	<body>
+	</body>
+</html>

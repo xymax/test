@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>常见的事件编分类</title>
+<script>
+	/**
+	 * 1)和点击相关的事件
+	 * 	onclick	:单击事件
+	 *  ondbclick:双击事件
+	 * 
+	 * 2)和焦点相关的事件
+	 * 	onfoucs:获取焦点
+	 *  onblur:失去焦点
+	 * 
+	 * 3)和选项卡是否发生变化相关的事件
+	 * 	onchange事件:		应用场景:	省市联动
+	 * 4)和鼠标相关的事件
+	 * 	onmouseover:鼠标经过
+	 *  onmouseout:鼠标移出
+	 * 5)页面载入事件	:一般在body中使用,body中的内容加载完毕执行该函数
+	 * 	onload
+	 */
+	/*function init(){
+		alert("触发了页面载入事件")
+	}*/
+	
+	function testDbClick(){
+		alert("点了两次") ;
+	}
+		
+		function testFocus(){
+			//获取标签对象
+			var usename = document.getElementById("username") ;
+			usename.value ="" ;
+		}
+		
+		function testBlur(){
+			//获取标签对象,同时拿到内容
+			var username = document.getElementById("username").value ;
+			//获取span标签对象,提示
+			var userSpan = document.getElementById("user_span") ;
+			//假设用户名如果不是"eric",那么用户名可以用,否则"用户名被占用了"
+			if(username=="eric"){
+				userSpan.innerHTML ="用户名被占用".fontcolor("#F00") ;
+			}else{
+				userSpan.innerHTML ="恭喜,用户名可用".fontcolor("#0F0") ;
+			}
+		}
+		
+		
+		function testChange(){
+//			alert("选项卡变化了") ;
+			//通过id属性获取省份的select标签对象，同时获取选中的内容
+			var province = document.getElementById("province").value ;
+//			alert(province) ;
+//获取城市的select标签
+		var city = document.getElementById("city") ;
+//		alert(city) ;
+		city.innerHTML="";
+		
+		if(province =="陕西省"){
+			//定义数组
+			var arr = ["西安市","咸阳市","宝鸡市","渭南市"];
+			for(var i = 0 ; i < arr.length; i++){
+				//city的innerHTML
+//				//<option value="深圳市">深圳市</option>
+			   city.innerHTML += "<option value='"+arr[i]+"'>"+arr[i]+"</option>"
+			}
+		}
+		if(province =="山西省"){
+			//定义数组
+			var arr = ["太原市","大同市","运城市","晋中市"];
+			for(var i = 0 ; i < arr.length; i++){
+				//city的innerHTML
+//				//<option value="深圳市">深圳市</option>
+			   city.innerHTML += "<option value='"+arr[i]+"'>"+arr[i]+"</option>"
+			}
+		}
+	}
+		
+	
+</script>
+	</head>
+	<body>
+	<input type="button" value="双击点我" ondblclick="testDbClick()" />	
+	用户名:<input type="text" onblur="testBlur()" id="username" value="请输入用户名" onfocus="testFocus()"  />
+	<span id="user_span"></span><br />
+	<select id="province" onchange="testChange()">
+		<option value="请选择">--请选择--</option>
+		<option value="陕西省">陕西省</option>
+		<option value="山西省">山西省</option>
+		<option value="广东省">广东省</option>
+		
+	</select>
+	<select id="city">
+		
+		<!--<option value="深圳市">深圳市</option>-->
+	</select>
+	</body>
+</html>

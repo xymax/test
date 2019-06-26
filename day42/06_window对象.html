@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window</title>
+<script>
+	/**
+	 * 前端页面跳转:
+	 * 		超链接
+	 * 		open()
+	 * 		loaction的href属性
+	 * 
+	 * 后端跳转页面
+	 * request.getRequestDispatcher("/xx.jsp/html")
+	 * 		.forward(request,response) ;
+	 * 		请求转发:(HttpServletRequest request)
+	 * 	重定向:(HttpServletResponse response)
+	 * response.sendRedirect("/xx.jsp/xx.html") ;
+	 * 	
+	 * 
+	 * open("url","打开方式","指定打开的页面的宽高/或者是是否显示任务栏")方法
+	 	setInterval("task()",毫秒数)：重复执行的定时器（开启）
+	 	clearInterval(taskId) :关闭setInterval定时器
+	 	
+	 	setTimeout("task（）"，毫秒数)：经过毫秒数后执行一次任务
+	 	clearTimeout(taskId)关闭setTimeout定时器
+	 * */
+function testWindowOpen(){
+	//window对象:顶级对象,可以省略(频繁调用)
+	open("07_adv.html","_blank","width:500px;height:400px;toolbar=0")
+}
+
+//定义一个变量
+var intervalTaskId ;
+function testWindowInte(){
+	//反复执行
+	intervalTaskId = setInterval("testWindowOpen()",3000) ;
+}
+function testClearInterval()	{
+	window.clearInterval(intervalTaskId) ;
+}
+
+var timerId ;
+function testTimeOut(){
+	timerId = setTimeout("testWindowOpen()",5000) ;
+}
+function testCleTimeout(){
+	clearTimeout(timerId) ;
+}
+//alert("消息对话框") ;
+//confirm：确认对话框
+function testConfirm()	{
+	var flag = window.confirm("确认删除吗？一旦删除，数据不可恢复") ;
+	if(flag){
+		alert("正在删除中。。。") ;
+	}else{
+		alert("取消了删除操作。。。") ;
+	}
+}
+
+</script>
+	</head>
+<input type="button" value="testOpen" onclick="testWindowOpen()" />
+<br />
+<input type="button" value="testInterval" onclick="testWindowInte()" />
+<br />
+
+<input type="button" value="clearInterval" onclick="testClearInterval()" />
+<br />
+<input type="button" value="testTimeout" onclick="testTimeOut()" />
+<br />
+<input type="button" value="testCleTimeout" onclick="testCleTimeout()" />
+<br />
+<input type="button" value="testConfirm" onclick="testConfirm()" />
+</html>

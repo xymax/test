@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>loaction对象</title>
+	<script>
+		function  testHref(){
+			window.location.href="07_adv.html" ;
+		}
+		function testReload(){
+			location.reload() ;
+		}
+	</script>
+	</head>
+	<body>
+		<a href="07_adv.html">超链接</a><br />
+		<!--
+			js事件编程三要素         Java(GUI:图形界面化编程)
+				1)事件源(标签)
+				2)事件监听器(编写的函数)
+				3)注册事件监听器(在标签中使用特定属性来和函数进行绑定)
+		-->
+		<input type="button" value="testHref" onclick="testHref()" />
+		<input type="button" value="testreload" onclick="testReload()" />
+	</body> 
+</html>

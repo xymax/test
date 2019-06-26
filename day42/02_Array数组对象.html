@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Array数组对象</title>
+<script>
+	/**
+	 * 反射(复习)
+	 * List<String>
+	 * 		E add(Object e){
+	 * 	
+	 * 		return true ;
+	 * }
+	 * 		    添加Integer的数据类型可以吗?(反射)
+	 */
+	
+	/**
+	 * 方式
+	 * 不指定长度
+	 * 	var arr = new Array() ;
+	 * 指定长度
+	 *  var arr = new Array(size) ;
+	 * 指定具体元素值
+	 * var arr = [元素1,元素2,....] ;
+	 * 
+	 * 注意事项:
+	 * 	1)js中不存在数组角标越界,因为长度是可以不断的扩容的
+	 * 	2)js中定义数组,可以存储任意类型的元素
+	 * 		
+	 */
+//定义一个数组:方式1:
+	//var arr = new Array() ;
+	//方式2:
+	//var arr = new Array(2) ;
+	/*alert(arr.length) ;
+	arr[0] = 10 ;
+	arr[1] = 20 ;
+	arr[2] = 30 ;
+	arr[3] = "hello" ;
+	arr[4] = 'A' ;
+	arr[5] = true ;
+	arr[6] = new  Object() ;
+	alert(arr.length) ;*/
+	
+	//方式3:js的静态初始化,直接指定具体元素值
+	var arr1= [10,'A',"hello",true,new Object()] ;
+	
+	for(var i = 0 ; i < arr1.length;i++){
+		document.write(arr1[i] +"&nbsp;&nbsp;") ;
+	}
+	document.write("<hr />") ;
+	/**
+	 * 常用的方法
+	 * 	join(var str):通过特定的分隔符str将数组的元素拼接成字符串
+	 * reverse():字符串反转功能
+	 */
+	
+	var arr = ["JavaEE","Hadoop","Python","R","Go"] ;
+	//join(var str)
+	/*var str = arr.join("-") ;
+	document.write("str:"+str) ;*/
+	for(var i = 0 ; i < arr.length;i++){
+		document.write(arr[i] +"&nbsp;&nbsp;") ;
+	}
+	document.write("<hr />") ;
+	//反转
+	arr.reverse() ;
+	for(var i = 0 ; i < arr.length;i++){
+		document.write(arr[i] +"&nbsp;&nbsp;") ;
+	}
+	
+	
+	
+	
+</script>
+	</head>
+	<body>
+	</body>
+</html>
