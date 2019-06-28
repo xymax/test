@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>document方法获取标签对象(推荐方式)</title>
+<script>
+	function getUserName(){
+		//方式1：getElementById("id属性值")
+		/**
+		 * 特点：id属性值在html页面必须唯一的，否则获取不到标签对象
+		 */
+		var username = document.getElementById("username") ;
+		//方式2：getElementsByName("name属性") ：返回标签对象列表
+		//var username = document.getElementsByName("name")[0] ;
+		
+		//方式3：getElementsByClassName("class属性值"),返回标签对象列表
+		//var username = document.getElementsByClassName("cl_input")[0] ;
+		
+		//方式4:getElementsByTagName("标签名称")
+		//var username = document.getElementsByTagName("input")[0] ;
+		alert(username.value) ;
+	}
+</script>
+	</head>
+<body>
+用户名：<input type="text" class="cl_input" name="name" id="username" onblur="getUserName()"  />
+</body>
+</html>

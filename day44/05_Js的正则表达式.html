@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Js的正则表达式</title>
+<script>
+	/**js的正则语法
+	 *  \:
+                本身要描述邮箱中.  \.
+X*:X字符出现0次或多次
+X?:X字符串出现0次或1次
+X+: X字符出现1次或多次
+X{n}:X字符恰好出现n次
+X{n,}:X字符至少出现n次
+X{n,m}:至少出现n次,但不超过m次
+[a-zA-Z]   [a-zA-Z0-9]
+
+js正则表达式格式:
+var 变量名(reg) = /正则语法/; 
+正则表达式中内置的方法:test(str) :返回是boolean类型
+校验字符串内容是否和定义规则一致,返回true,条件成立
+,否则条件不成立!
+
+js:弱类型语言,正则语法本身是一个不完全匹配的规则,如果想java
+一样进行完全匹配,提供边界匹配符号
+^:以...格式开头
+$:以...格式结尾
+
+*/
+//定义一个字符串
+var str = "ab12mn" ;
+//定义正则:
+var reg = /^[0-9]{2}$/ ;
+if(reg.test(str)){
+	alert("条件成立") ;
+}else{
+	alert("条件不成立") ;
+}
+</script>
+	</head>
+<body>
+</body>
+</html>

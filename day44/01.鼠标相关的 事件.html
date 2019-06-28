@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>鼠标相关的事件</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script>
+		function testMouseOver(){
+			alert("触发了鼠标经过的事件") ;
+		}
+		function testMouseOut(){
+			alert("触发了鼠标移出事件") ;
+		}
+		
+		//显示广告
+		function showAdv(){
+			//通过id属性获取img对象
+			var img = document.getElementById("img1") ;
+			//修改img的dispaly属性
+			img.style.display="block" ;
+			
+			//执行一个定时器，经过5秒后，隐藏广告
+			setTimeout("hideAdv()",5000) ;
+		}
+		
+		function hideAdv(){
+			//获取标签对象
+			var img = document.getElementById("img1") ;
+			img.style.display="none" ;
+			
+		}
+		
+		
+		//初始化
+		function init(){
+			
+			//执行定时器
+			setTimeout("showAdv()",3000) ;
+		}
+	</script>
+	</head>
+	<!--
+		原生js的页面载入事件
+				定时隐藏和定时弹出广告
+	-->
+	<body onload="init()">
+		<!--鼠标经过事件-->
+		<!--<div onmouseover="testMouseOver()" onmouseout="testMouseOut()">
+			div的内容
+		</div>-->
+		<img id="img1" src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" width="100%" style="display: none;" />
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jq入门</title>
+		<!--引入js库-->
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+/**
+ * Jquery:就是封装js库
+ *   特点:写的少,做的多!
+ * 
+ * 使用步骤:
+ * 	1)导入js库
+ *  2)页面载入事件 (程序的入口)
+ */
+//原生js的页面载入事件
+/*function init(){
+	alert("onload111") ;
+}
+
+
+function init(){
+	alert("onload222") ;
+}*/
+
+//Jquery的页面载入事件
+
+/*jQuery(document).ready(function(){
+	alert("jQuery(document).ready(function()") ;
+}) ;
+
+$(document).ready(function(){
+	alert("$(document).ready(function()") ;
+}) ;*/
+
+
+
+//简写方式:$的标识符(jQuery)
+/*$(function(){
+	alert("$(function()") ;
+}) ;*/
+
+
+//原生js单击点击事件
+/*function testClick(){
+	alert("原生js的单击点击") ;
+}*/
+
+//Jquery的格式:首先程序入口:页面载入事件
+$(function(){
+	//给哪个标签派发事件
+	//使用Jquery的id选择器选中这个标签
+	$("#btn1").click(function(){
+		alert("Jquery方式的单击点击") ;
+	}) ;
+	
+	
+}) ;
+
+
+
+</script>
+	</head>
+<!--<body onload="init()">-->
+<body>
+<input type="button" id="btn1" value="点我" onclick="testClick()" />
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>通过doucment集合属性获取标签对象(了解)</title>
+
+	</head>
+	<body>
+	<form>
+		<a href="#">超链接1</a>
+		<img src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" width="100%" />
+	</form>
+	<form>
+		<a href="#"></a><img src="" /><a href="#"></a>
+	</form>
+	</body>
+	
+<script>
+	/**
+	 * all:获取当前页面中所有标签对象的集合，返回的集合列表
+	 * forms：获取所有的form标签的集合，返回集合列表
+	 * images:获取所有的img标签的集合，返回列表
+	 * links：获取所有的超链接标签相关的集合，返回列表
+	 */
+//var nodeList = document.all ;
+//var nodeList = document.forms ;
+//var nodeList = document.images ;
+var nodeList = document.links ;
+alert(nodeList.length) ;
+for(var i = 0 ;  i< nodeList.length ; i++){
+	alert(nodeList[i].nodeName) ;
+}
+
+</script>
+</html>

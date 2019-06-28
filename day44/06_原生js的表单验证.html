@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原生js的表单验证</title>
+<script>
+/**
+ * 规则
+ * 用户名:由4-14位的数字或者字母组成
+ * 密码:由6~16位的数字或者字母组成
+ * 确认密码:和密码内容一致
+ * 邮箱:数组或者字母@数字或者字母(.com.cn/.com/.cn..)
+ */
+//校验用户名
+function checkUserName(){
+	//获取用户名的内容
+	var username = document.getElementById("username").value ;
+	//获取id="user_span"的span标签对象
+	var userSpan = document.getElementById("user_span") ;
+	//用户名:由4-14位的数字或者字母组成
+	var reg = /^[a-zA-Z0-9]{4,14}$/ ;
+	//校验
+	if(reg.test(username)){
+		//匹配成功
+		userSpan.innerHTML = "用户名格式正确".fontcolor("greenyellow") ;
+		return true ;
+	}else{
+		//匹配失败
+		userSpan.innerHTML = "用户名格式有误".fontcolor("red") ;
+		return false ;
+	}
+}
+
+//校验密码
+function checkPwd(){
+	//获取密码内容
+	var pwd = document.getElementById("pwd").value ;
+	//获取id="pwd_span"span对象
+	var pwdSpan = document.getElementById("pwd_span") ;
+	//密码:由6~16位的数字或者字母组成
+	var reg = /^[a-zA-Z0-9]{6,16}$/ ;
+	//校验
+	if(reg.test(pwd)){
+		//成功
+		pwdSpan.innerHTML = "密码格式正确".fontcolor("greenyellow") ;
+		return true ;
+	}else{
+		pwdSpan.innerHTML = "密码格式错误".fontcolor("red") ;
+		return false ;
+	}
+}
+
+//确认密码的内容和密码内容必须一致
+function checkRePwd(){
+	//获取密码内容
+	var pwd = document.getElementById("pwd").value ;
+	//确认密码内容
+	var rePwd = document.getElementById("repwd").value ;
+	//获取id="repwd_span"的span标签对象
+	var repwdSpan = document.getElementById("repwd_span") ;
+	if(pwd==rePwd){
+		repwdSpan.innerHTML ="两次输入的内容一致".fontcolor("greenyellow") ;
+		return true ;
+	}else{
+		repwdSpan.innerHTML ="两次输入的内容不一致,请重新输入".fontcolor("red") ;
+		return false ;
+	}
+}
+
+
+//校验邮箱
+function checkEmail(){
+	//获取输入邮箱的内容
+	var email = document.getElementById("email").value ;
+	//通过id="email_span"获取span对象
+	var emailSpan = document.getElementById("email_span") ;
+	//邮箱:数组或者字母@数字或者字母(.com.cn/.com/.cn..) www.sina.com.cn
+	var reg = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+(\.[a-zA-Z]{2,3}){1,2}$/ ;
+	//校验
+	if(reg.test(email)){
+		emailSpan.innerHTML = "邮箱格式正确".fontcolor("greenyellow") ;
+		return true ;
+	}else{
+		emailSpan.innerHTML = "邮箱格式错误".fontcolor("red") ;
+		return false ;
+	}
+}
+
+//校验全部的表单数据都通过
+function checkAll(){
+	//校验四个功能
+	if(checkUserName() && checkPwd() && checkRePwd() && checkEmail()){
+		return true ;
+	}else{
+		return false ;
+	}
+}
+</script>
+	</head>
+<body><!--
+	onsubmit:表示表单提交是否成功 (携带返回值)
+		true:表示提交成功
+		false:表示提交失败
+-->
+<form action="backend.html" method="post" onsubmit="return checkAll()">
+用户名:<input type="text" onblur="checkUserName()" id="username"  /><span id="user_span"></span>
+<br />
+密&nbsp;&nbsp;&nbsp;码:<input type="password" onblur="checkPwd()" id="pwd" /><span id="pwd_span"></span>
+<br />
+确认密码:<input type="password" onblur="checkRePwd()" id="repwd" /><span id="repwd_span"></span>
+<br />
+邮&nbsp;&nbsp;&nbsp;箱:<input type="text" onblur="checkEmail()" id="email" /><span id="email_span"></span>
+<br />
+<input type="submit" value="注册" />
+</form>
+</body>
+</html>
