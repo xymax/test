@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jquery基本选择器</title>
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+	/**
+	 * Jq的基本选择器
+	 * 		#id:id选择器 (推荐优先推荐)
+	 *  	.class:类选择器
+	 *      element:标签选择器
+	 * 		*:通配符
+	 * 		并集选择器
+	 */
+	
+$(function(){
+	//ID选择器
+	//获取input标签对象
+	$("#btn1").click(function(){
+		//选中id为two的div元素 
+		//同时改变背景色 ：css(name, value)
+		$("#two").css("background-color","palegreen") ;
+		
+	}) ;
+	
+	$("#btn2").click(function(){
+		//class选择器
+		//同时改变背景色 ：css(name, value)
+		$(".mini").css("background-color","pink") ;
+		
+	}) ;
+	
+	
+	$("#btn3").click(function(){
+		//标签选择器
+		//同时改变背景色 ：css(name, value)
+		$("div").css("background-color","greenyellow") ;
+		
+	}) ;
+	$("#btn4").click(function(){
+		//*
+		//同时改变背景色 ：css(name, value)
+		$("*").css("background-color","greenyellow") ;
+		
+	}) ;
+	
+	$("#btn5").click(function(){
+		//并集选择器
+		//同时改变背景色 ：css(name, value)
+		$(".mini,span").css("background-color","red") ;
+		
+	}) ;
+	
+	
+		
+}) ;
+</script>
+	
+	</head>
+<body>
+	<input type="button" value="选中id为two的div元素" id="btn1" /><br />
+	<input type="button" value="选中所有的mini类的div元素" id="btn2" /><br />
+	<input type="button" value="选中所有的div元素" id="btn3" /><br />
+	<input type="button" value="通配符选择器" id="btn4" /><br />
+	<input type="button" value="同时mini类的元素以及span" id="btn5" /><br />
+	<br />
+<div id="one">
+	<div class="mini">1-1</div>
+</div>
+<div id="two">
+	<div class="mini">2-1</div>
+	<div class="mini">2-2</div>
+</div>
+
+<div id="three">
+	<div class="mini">3-1</div>
+	<div class="mini">3-2</div>
+	<div class="mini">3-3</div>
+</div>
+<span>span</span>
+</body>
+</html>

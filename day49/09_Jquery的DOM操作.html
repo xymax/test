@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Jquery的DOM操作</title>
+	<!--
+		
+		append(content（Jquery对象）)：末尾追加内容
+		prepend(content)：在当前节点前面添加
+		after(content)：在默认插入内容
+	-->
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+	$(function(){
+		$("#btn1").click(function(){
+			
+			//在当前div后面追加字体标签font
+			//$("#div1").append($("<font color='red' size='7'>好，点击了。。。</font>")) ;
+			//$("#div1").prepend($("<font color='red' size='7'>好，点击了。。。</font>")) ;
+			//在末尾插入子节点
+			$("#div1").after($("<input type='button' value='新按钮' />")) ;
+		
+		}) ;
+		
+		
+		
+	}) ;
+</script>
+	</head>
+	<body>
+<input type="button" id="btn1" value="来，点我啊" />
+<div id="div1">
+      会在当前后面追加元素
+</div>
+	</body>
+</html>

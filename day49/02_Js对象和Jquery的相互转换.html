@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Js和Jq对象的相互转换</title>
+<!--导入js库-->
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+//定义一个函数
+function testJs(){
+	//通过id属性值获取标签对象
+	var div = document.getElementById("div1") ;
+	//使用该对象修改innerHTML属性
+	//js对象修改内容
+	//div.innerHTML ="使用原生Js的方式改变了Div的内容" ;
+	
+	//js对象--->Jquery :只需要将js对象使用$()包裹起来
+	//在企业中:Jquery对象 js对象前面加上$
+	var $div = $(div) ;
+	//使用Jquery对象改变文本内容html("")
+	$div.html("将Js对象转换成Jquery对象修改了div的文本") ;
+}
+
+
+
+
+//页面载入事件
+$(function(){
+	//确定事件:点击
+	$("#btn1").click(function(){
+		//获取id="div2"的标签对象
+		//$("#div2").html("使用Jquery对象改变了div内容") ;
+		
+		var $div = $("div") ; //Jquery的标签选择器
+		//转换成Js对象改变div的文本内容
+		//get(index):取得第几个匹配的元素index:从0开始
+		var jsDiv = $div.get(1) ;
+		jsDiv.innerHTML ="将Jquery对象转换成Js对象修改了div的内容" ;
+	}) ;
+}) ;
+</script>
+	</head>
+<body>
+<input type="button" value="使用Js/Jq对象改变div的内容" onclick="testJs()" />
+<div id="div1">
+	这里的文本内容将会被Js对象/Jq对象改变
+</div><br />
+<input type="button" id="btn1" value="使用Jq/js对象改变div内容" />
+<div id="div2">
+	这里文本将会被Jq对象/Js对象改变
+</div>
+</body>
+</html>

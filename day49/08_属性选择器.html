@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性选择器</title>
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+	$(function(){
+		//属性选择器的语法
+		//标签名称[@=xxx]    :@前导已经省略
+		
+		//web ：xml解析
+		//xpath技术       "//标签名称[@id='002']"
+//		$("a[href]").css("color","red") ;
+
+		//一次性指定多个属性
+//		$("a[href][title]").css("color","palegreen") ;
+
+		//第三种方式：指定属性的时候，具体的属性值
+		$("a[href][title='test']").css("color","red") ;
+	}) ;
+</script>
+	</head>
+	<body>
+		
+	<a href="#">href 111</a><br />
+	<a href="#" title="test">href 222</a>
+	</body>
+</html>

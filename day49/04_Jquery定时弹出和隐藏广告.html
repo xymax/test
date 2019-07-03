@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定时弹出广告</title>
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+	
+	function showAdv(){
+		//获取img标签对象
+		$("#img1").slideDown(3000) ;
+		
+		
+		//定时器
+		setTimeout("hideAdv()",5000) ;
+	}
+	
+	function hideAdv(){
+//		$("#img1").slideUp(3000) ;
+		$("#img1").animate({width:"1000px",opacity:"0"},5000) ;
+		
+	}
+	
+	//页面载入
+	$(function(){
+		
+		//仅执行一次定时器
+		setTimeout("showAdv()",3000) ;
+	}) ;
+</script>	
+	</head>
+	<body>
+<img id="img1" style="display: none" src="img/f001a62f-a49d-4a4d-b56f-2b6908a0002c_g.jpg" width="60%" />
+	</body>
+</html>

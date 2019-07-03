@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基本过滤器</title>
+<link href="css/style.css" rel="stylesheet" />
+<!--导入js库-->
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+$(function(){
+	$("#btn1").click(function(){
+		//过滤第一个div元素
+//		$("div").first().css("background-color","red") ;
+		//$("选择器:first")
+		$("div:first").css("background-color","blue") ;
+		
+	}) ;
+	
+	$("#btn2").click(function(){
+		//:even
+		$("div:even").css("background-color","red") ;
+		
+	}) ;
+	$("#btn3").click(function(){
+		//:odd
+		$("div:odd").css("background-color","yellowgreen") ;
+		
+	}) ;
+	
+	//html：转义字符：  &gt;  >    &lg;<
+	//Jquery：:gt(index)  :lt（index）
+	$("#btn4").click(function(){
+		
+		//:gt(index)
+		$("div:gt(2)").css("background-color","#0F0") ;
+	}) ;
+	
+}) ;
+</script>	
+	
+	</head>
+	<body>
+<input type="button" value="过滤第一个div元素" id="btn1" />
+<br />
+
+<input type="button" value="过滤div元素是偶数位的" id="btn2" /><br />
+<input type="button" value="过滤div元素是奇数位的" id="btn3" /><br />
+<input type="button" value="过滤d索引值大于2的div元素" id="btn4" /><br />
+<br />
+<div id="one"><!--0-->
+	<div class="mini">1-1</div><!--1-->
+</div>
+<div id="two"><!--2-->
+	<div class="mini">2-1</div>
+	<div class="mini">2-2</div>
+</div>
+
+<div id="three">
+	<div class="mini">3-1</div>
+	<div class="mini">3-2</div>
+	<div class="mini">3-3</div>
+</div>
+<span>span</span>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画效果</title>
+<!--
+	导入js库
+-->
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+//页面载入事件
+$(function(){
+	
+	//点击显示按钮
+	$("#btn1").click(function(){
+		//获取id="img1"的img标签对象
+		//show():显示
+//		$("#img1").show(5000) ;
+
+		//滑动:slideDown():高度不断增大(上到下)
+//		$("#img1").slideDown(5000) ;
+
+//		淡入效果:fadeIn()
+//		$("#img1").fadeIn(3000) ;
+		//透明度:opacity:(0-1)
+		
+		//自定义动画
+		$("#img1")
+		.animate({width:"1000px",opacity:"0.5"},5000) ;
+		
+	}) ;
+	
+	
+	//隐藏
+	$("#btn2").click(function(){
+		
+//		$("#img1").hide(3000) ;
+		//滑动:slideUp():由下而上的
+//		$("#img1").slideUp(3000) ;
+
+		//淡出效果:fadeOut()
+//		$("#img1").fadeOut(5000) ;
+		
+		//自定义
+		$("#img1").animate
+		({width:"800px",opacity:"0"},5000) ;
+	}) ;
+	
+	
+	
+}) ;
+</script>
+	</head>
+	<body>
+<input type="button" value="显示"  id="btn1"/>
+<input type="button" value="隐藏"  id="btn2"/><br />
+<img style="display: none;" src="img/1-161104143944.gif" id="img1" width="500px" />
+	</body>
+</html>

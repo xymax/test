@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Juery的层级选择器</title>
+<link href="css/style.css" rel="stylesheet" />
+<!--导入js库-->
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+	/**
+	 * 子元素     selector1  selector2...
+       	 后代      parent  > child
+     	  相邻兄弟   selector1 + selector2          head  body
+       Sibling     selector1 ~ selector2
+	 */
+	$(function(){
+		$("#btn1").click(function(){
+			//子选择器
+			$("body div").css("background-color","pink") ;
+			
+		});
+		$("#btn2").click(function(){
+			//后代选择器
+			$("body>div").css("background-color","palegreen") ;
+			
+		});
+		
+		$("#btn3").click(function(){
+			//后代选择器
+			$("#one+ #two ").css("background-color","palegreen") ;
+			
+		});
+		
+		$("#btn4").click(function(){
+			//后代选择器
+			$("#three ~span ").css("background-color","pink") ;
+			
+		});
+		
+		
+		
+		
+	}) ;
+</script>
+	</head>
+<body>
+<input type="button" value="选中body下的所有div元素" id="btn1" />	
+<input type="button" value="选中body下的子div元素" id="btn2" />	
+<input type="button" value="id为one的相邻兄弟元素" id="btn3" />	
+<input type="button" value="id为three的紧挨着的弟弟的元素" id="btn4" />	
+	<br />
+<div id="one">
+	<div class="mini">1-1</div>
+</div>
+<div id="two">
+	<div class="mini">2-1</div>
+	<div class="mini">2-2</div>
+</div>
+
+<div id="three">
+	<div class="mini">3-1</div>
+	<div class="mini">3-2</div>
+	<div class="mini">3-3</div>
+</div>
+<span>span</span>
+	</body>
+</html>

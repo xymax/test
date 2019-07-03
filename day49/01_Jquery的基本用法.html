@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Jq的基本使用</title>
+<!--
+	步骤:
+		1)导入核心js库
+		2)页面载入事件(Jquery程序的入口)
+		3)确定页面中哪个标签派发的具体事件
+					a)具体的业务:改变span标签的文本内容
+			
+-->
+<!--引入js库-->
+<script src="js/jquery-1.11.0.js"></script>
+
+<script>
+	//页面载入事件
+	$(function(){
+		//确定哪个标签派发的具体事件
+		//$("#id属性值")
+		$("#btn1").click(function(){
+			//具体的业务:改变span标签的文本内容
+			//原生js:标签对象.innerHTML/innerText ="" ;
+			//Jquery:标签对象.html("文本内容")
+			$("#span").html(
+				"使用Jquery对象改变了span标签的文本内容") ;
+		}) ;
+	}) ;
+</script>
+	</head>
+<body>
+<button id="btn1">点我</button><br />
+<span id="span">span的内容</span>
+</body>
+</html>

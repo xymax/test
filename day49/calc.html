@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>calc</title>
+<style>
+	input{
+		width: 396px;
+		height: 60px;
+		font-size: 40px;
+	}
+	
+	tr{
+		text-align: center;
+	}
+	td{
+		width: 100px;
+		height: 119px;
+		font-size: 35px;
+	}
+	td:hover{
+		background-color: gray;
+		/*cusor属性*/
+		cursor: pointer;
+	}
+</style>
+	</head>
+	<body>
+<!--
+	1)布局
+			div+css：层级布局
+			table布局：  5行4列
+	2)将清除键,退格键，等号，显示框单独设置id
+		给数字键包含小数点，设置class=“num”
+		给运算符：设置class=“operator”
+	3)DOM操作
+		获取显示框，清除/退格/运算符/数字键/等号键的对象
+-->
+<center>
+<!--禁用掉文本输入框 输入功能disabled-->
+	<input type="text" id="show" value="0" disabled="disabled" />
+</center>
+<table border="1px" align="center" width="400px" height="600px"
+	 cellspacing="0" cellpadding="2">
+	<tr>
+		<td id="clear">C</td>
+		<td id="del">退格</td>
+		<td>%</td>
+		<td class="operator">/</td>
+	</tr>
+	<tr>
+		<td class="num">7</td>
+		<td class="num">8</td>
+		<td class="num">9</td>
+		<td class="operator">*</td>
+	</tr>
+	<tr>
+		<td class="num">4</td>
+		<td class="num">5</td>
+		<td class="num">6</td>
+		<td class="operator">-</td>
+	</tr>
+	<tr>
+		<td class="num">1</td>
+		<td class="num">2</td>
+		<td class="num">3</td>
+		<td class="operator">+</td>
+
+	<tr>
+		<td colspan="2" class="num">0</td>
+		<td class="num">.</td>
+		<td id="result">=</td>
+	</tr>
+</table>
+	</body>
+<script>
+//获取显示框标签对象
+var showResult = document.getElementById("show") ;
+//清除键
+var clear = document.getElementById("clear") ;
+//推格
+var del = document.getElementById("del") ;
+//等号
+var result = document.getElementById("result") ;
+
+//定义三个变量
+var numValue1 = "" ;//第一个数
+var numValue2 = "" ;//第二个数
+var oper = "" ;//操作符
+
+//获取数字键，并且设置点击
+var nums = document.getElementsByClassName("num") ;
+for(var i = 0 ; i<nums.length ; i++){
+	//获取到每一个数字键
+	//批量设置点击
+	nums[i].onclick = function(){
+		//测试
+//		alert("触发了点击") ;
+		//this:nums[i]
+		/*var text = this.innerText ;
+		alert(text) ;*/
+		
+		//bug：小数点问题
+		numValue1 += this.innerText ;
+		showResult.value = numValue1 ;
+	}
+}
+
+//获取运算符，并设置点击
+
+/**
+ * 规律：
+ * 	将第一个数赋值给第二个数，将第一个数清空掉("") ,
+ * 使用numValue1接收下一次用户的点击数据，
+ * 操作保存
+ */
+
+
+//运算符：resultFun（） --->四则运算
+/**
+ * 定义两个局部变量
+ * one   第二个数
+ * two   第一个数
+ * switch语句
+ */
+
+</script>
+</html>
