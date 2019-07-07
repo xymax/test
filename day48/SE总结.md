@@ -153,7 +153,7 @@ CAS（O, V, M ）O：当前线程认为主内存中的值       V：主内存中
 
    ​       区别：1. synchronized是关键字，JVM层面上的实现，ReentrantLock是java语言层面上的实现
 
-   ​                  2.ReentrantLock具备一些synchronized不具备的特性，如相应中断，支持超时，支持非                     阻塞式获取锁，可以实现公平锁（默认非公平锁）
+   ​                    2.ReentrantLock具备一些synchronized不具备的特性，如相应中断，支持超时，支持非阻塞式获取锁，可以实现公平锁（默认非公平锁）
 
    ​                  3.synchronized只有一个等待队列，二Lock调用newCondition()产生多个等待队列。
 
@@ -181,9 +181,142 @@ CAS（O, V, M ）O：当前线程认为主内存中的值       V：主内存中
 
    等待队列：调用wait()的线程置入等待队列，等待notify唤醒。唤醒后放入同步队列的队尾。
 
-   
-
    公平锁：等待时间最长的线程最先获取锁。（synchronized是一个非公平锁）
 
    
 
+------
+
+Juc:lock1.5
+
+1. tryLock：非阻塞式获取锁
+2. lockInterruptily：相应中断
+3. tryLock（long time ，TimeUnit）：支持超时
+
+
+
+synchronized与Lock的区别？
+
+1. synchronized是JVM层面，关键字；Lock是Java语言层面实现的“管程”。
+2. Lock具备一些synchronized不具备的特性， 如……，支持公平锁，支持多个等待队列，还支持读写锁。
+
+- 读写锁：读者写者问题
+- 读线程：读读异步，读写同步
+- 写线程：写写同步
+
+读写锁实现：ReentrantReadWriteLock（实现缓存HashMap+ReetrantReadWriteLock）
+
+读锁：ReadLock多个线程在同一时刻可以共同取得该读锁
+
+写锁：WriteLock，独占锁，多个线程在同一时刻只有一个线程可以获得该锁
+
+共享锁：多个线程可以同时获得该锁  读锁 ReadLock，不等于无锁。
+
+当写线程开始工作所有线程（包括读线程）全部进入阻塞态
+
+
+
+JDK1.8  ：StampedLock  更加乐观的锁实现，性能比ReetrantReadWriteLock还高
+
+
+
+------
+
+juc包下的工具类：CAS+Lock
+
+1. 闭锁CountDownLatch
+
+   * ```java
+     public CountDownLatch(int count)：count 表示需要等待的线程个数
+     
+     public void countDown():计数器-1（类似于运动员线程）
+     
+     public void await() throws Interrupte
+     ```
+
+     
+
+   - CountDownLatch对象在计数器值减为0时不可恢复在，只会调用await方法的线程。
+
+2. CyclicBarrier-循环栅栏
+
+   * ```java
+     public CyclicBarrier(int parties):parties表示需要多少个线程同时暂停已经恢复执行
+     public int await() cyclicBarrier 计数器减1 ，当减为0时，所有阻塞态线程同时恢复执行
+     
+     public cyclicBarrier(int parties,Runable BarrierAction)多个线程挑选一个线程执行barrierAction任务后，再同时恢复执行
+         
+        
+     ```
+
+   * cyclicBarrier计时器可以恢复reset()，cyclicBarrier的对象可以重复使用
+
+3. Exchange交换器
+
+   - Exchange用于两个线程交换数据，当缓存区只有一个线程时，该线程会阻塞知道配对成功再交换数据恢复执行
+
+4. Semaphore信号量
+
+   8个工人   5台设备
+
+   * ```java
+     public Semaphore(int permits):表示许可的数量
+     public Semaphore(int permits,boolean fair):等待时间最长的线程最先获得许可
+     
+     public void acquire（）：申请许可
+     public 
+     ```
+
+     
+
+   
+
+   
+
+常见队列阻塞
+
+​    LinkedBLockQueue：基于链表的无界阻塞队列
+
+​         -内置的固定大小线程池就采用此队列
+
+  Synchronous
+
+
+
+
+
+Executors ：线程池的工具类
+
+* 单线程池
+
+  * newSingleThreadExecutor（）
+
+* 固定大小线程池
+
+  * newCachedThreadPool（）
+
+* 缓存池（服务器负载较轻适应与很多短期异步小任务）
+
+  * 当提交任务速度>>任务处理速度，不断产生新线程；任务处理速度>提交任务速度
+
+* 定时调度池
+
+  * newScheduledThrePool（int corePoolSize）
+
+* 核心池
+
+* 最大线程池
+
+* 阻塞队列
+
+* 拒绝策略
+
+* 线程池：为何推荐使用线程池来新建线程
+
+  1. 线程池的工作流程
+  2. 如何自定义线程池
+     - 核心线程池类ThreadPoolExcutor参数配置
+     - 线程池工作线程Worker，如何实现
+  3. 在何种环境下选用何种线程池
+
+  
