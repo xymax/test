@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="test">
+    <!--
+        parameter explain:
+         id: statementID
+         parameterType: variable value
+         resultType:  all of result will be back here where it is from the result of the sql execute
+    -->
+    <select id="queryUserById" parameterType="int" resultType="com.xy.po.User">
+        select * from user where userid = #{value};
+    </select>
+
+
+</mapper>
