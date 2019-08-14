@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="com.arvin.mapper.ItemsMapperCustom">
+
+
+    <sql id="queryItemsByNameSQL">
+        <if test="itemsCustom != null">
+            <if test="itemsCustom.name != null">
+                items.name like '%${itemsCustom.name}%'
+            </if>
+        </if>
+    </sql>
+
+    <!--商品列表查询-->
+    <!--关联查询，建议传入包装对象-->
+    <!--resultType：建议使用扩展对象-->
+    <select id="queryItemsByName" parameterType="com.arvin.po.ItemsVO" resultType="com.arvin.po.ItemsCustom">
+        select * from items
+        <where>
+            <include refid="queryItemsByNameSQL"/>
+        </where>
+    </select>
+
+   <!-- <select id="queryItemsById" parameterType="java.lang.Integer" resultType="com.arvin.po.ItemsCustom">
+        select * from items where id=#{myid}
+    </select>-->
+
+<!--    <update id="modifyItems" parameterType="com.arvin.po.ItemsCustom">
+        update
+	        items
+        set
+	        items.name=#{name},items.price=#{price}, items.detail=#{detail}
+        where
+            items.id=#{id};
+    </update>-->
+
+    <sql id="deleteItemsByIdsSQL">
+        <foreach collection="array" item="everyid" open="id in (" close=")" separator=",">
+            #{everyid}
+        </foreach>
+    </sql>
+
+    <delete id="deleteItemsByIds" parameterType="java.lang.Integer">
+        delete from items
+        <where>
+            <include refid="deleteItemsByIdsSQL"/>
+        </where>
+    </delete>
+</mapper>
