@@ -1,0 +1,24 @@
+server:
+  port: 8080  #total config
+
+
+spring:
+  profiles:
+    active: product
+
+#给POJO属性赋值
+emp:
+ empName: arvin
+ empAge: 36
+ empType: false
+ list:
+   - listValue1
+   - listValue2
+   - listValue3
+ map:
+   key1: mapValue1
+   key2: mapValue2
+   key3: mapValue3
+ people:
+    pName: monkey
+  pAge: 100

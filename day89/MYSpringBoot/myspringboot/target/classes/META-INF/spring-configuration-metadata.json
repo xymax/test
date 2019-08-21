@@ -1,0 +1,44 @@
+{
+  "groups": [
+    {
+      "name": "emp",
+      "type": "com.xy.myspring.po.Employee",
+      "sourceType": "com.xy.myspring.po.Employee"
+    }
+  ],
+  "properties": [
+    {
+      "name": "emp.emp-age",
+      "type": "java.lang.Integer",
+      "sourceType": "com.xy.myspring.po.Employee",
+      "defaultValue": 0
+    },
+    {
+      "name": "emp.emp-name",
+      "type": "java.lang.String",
+      "sourceType": "com.xy.myspring.po.Employee"
+    },
+    {
+      "name": "emp.emp-type",
+      "type": "java.lang.Boolean",
+      "sourceType": "com.xy.myspring.po.Employee",
+      "defaultValue": false
+    },
+    {
+      "name": "emp.list",
+      "type": "java.util.List",
+      "sourceType": "com.xy.myspring.po.Employee"
+    },
+    {
+      "name": "emp.map",
+      "type": "java.util.Map",
+      "sourceType": "com.xy.myspring.po.Employee"
+    },
+    {
+      "name": "emp.people",
+      "type": "com.xy.myspring.po.People",
+      "sourceType": "com.xy.myspring.po.Employee"
+    }
+  ],
+  "hints": []
+}
