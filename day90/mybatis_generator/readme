@@ -1,0 +1,23 @@
+说明： mybatis的逆向工程是一个工具类，不是什么新型的技术
+             类似于我们使用的log4j
+
+Mybatis的逆向工程
+  * 反向的帮你生产po类，mapper接口，xxMapper.xml文件
+
+  步骤：
+  1，在pom.xml文件中添加逆向工程的plugIn
+  <plugins>
+      <!-- mybatis-generator自动生成代码插件 -->
+      <plugin>
+          <groupId>org.mybatis.generator</groupId>
+          <artifactId>mybatis-generator-maven-plugin</artifactId>
+          <version>1.3.5</version>
+      </plugin>
+  </plugins>
+
+  2, 在maven项目的resources文件目录中引入generatorConfig.xml文件
+  3, 配置generatorConfig.xml文件
+  4，编写客户端调用generatorConfig.xml文件执行文件内容生成mapper和po
+
+
+
